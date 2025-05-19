@@ -19,6 +19,11 @@
                     window.location.href = 'trabalho.php';
                 });
             });
+
+            $('#Voltar').on('click', function(e){
+                e.preventDefault();
+                window.location.href = 'index.php';
+            });
         });
     </script>
 </head>
@@ -29,7 +34,7 @@
         <img src="images/cps-logo.png" alt="logo-cps">
     </header>
     <section id="<?= htmlspecialchars($_SESSION['local'] ?? '') ?>" class="pagina">
-        <a class="voltar" onclick="">Voltar</a>
+        <a class="voltar" id="Voltar">Voltar</a>
         <div class="titulo"><p class="titulo-e"><?= htmlspecialchars($_SESSION['local'] ?? '') ?></p></div>
         <main>
             <div class="home-holder">

@@ -41,6 +41,19 @@
                     );
                 }
             });
+
+            let local = "<?php echo $_SESSION['local']; ?>";
+
+            $('#Voltar').on('click', function(e){
+                if (local == "Bloco A" || local == "Bloco B"){
+                    e.preventDefault();
+                    window.location.href = 'sala.php';
+                }
+                if (local == "Biblioteca" || local =="Auditorio" || local =="Quadra" || local == "Patio"){
+                    e.preventDefault();
+                    window.location.href = 'index.php';
+                }
+            });
         });
     </script>
 </head>
@@ -51,7 +64,7 @@
         <img src="images/cps-logo.png" alt="logo-cps">
     </header>
     <section id="<?= htmlspecialchars($_SESSION['local'] ?? '') ?>" class="pagina">
-        <a class="voltar" onclick="">Voltar</a>
+        <a class="voltar" id="Voltar">Voltar</a>
         <div class="titulo"><p class="titulo-e"><?= htmlspecialchars($_SESSION['local'] ?? '') ?>  <?= htmlspecialchars($_SESSION['sala'] ?? '') ?></p></div>
         <main>
             <div class="home-holder" id="Mapa">
